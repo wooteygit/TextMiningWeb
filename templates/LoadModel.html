@@ -1,0 +1,67 @@
+<div class = "layoutpage">
+  <div class="row">
+    <div class="col-md-4">
+      <label class="control-label">วิชา</label>
+      <select class="form-control" name="cbSJ_ID" id="cbSJ_ID" ng-options="option.name for option in cbSJ_ID.availableOptions track by option.value" ng-model="cbSJ_ID.selectedOption" ng-change="setP_SJ_ID(cbSJ_ID.selectedOption.value)">
+      </select>
+      <input type="text" class="form-control" id = "sj_id" value = "{{cbSJ_ID.selectedOption.name}}" style="display:none;">
+    </div>
+
+    <div class="col-md-4">
+      <label class="control-label">แบบฝึกหัดที่</label>
+      <select class="form-control" name="cbP_SJ_ID" id="cbP_SJ_ID" ng-options="option.name for option in cbP_SJ_ID.availableOptions track by option.value" ng-model="cbP_SJ_ID.selectedOption" ng-change="setSEQ(cbSJ_ID.selectedOption.value,cbP_SJ_ID.selectedOption.value)">
+      </select>
+      <input type="text" class="form-control" id = "p_sj_id" value = "{{cbSJ_ID.selectedOption.name}}" style="display:none;">
+    </div>
+
+    <div class="col-md-4">
+      <label class="control-label">ข้อที่</label>
+      <select class="form-control" name="cbSEQ" id="cbSEQ" ng-options="option.name for option in cbSEQ.availableOptions track by option.value" ng-model="cbSEQ.selectedOption" ng-change="setNUM_K(cbSJ_ID.selectedOption.value,cbP_SJ_ID.selectedOption.value,cbSEQ.selectedOption.value)">
+      </select>
+      <input type="text" class="form-control" id = "seq" value = "{{cbSJ_ID.selectedOption.name}}" style="display:none;">
+    </div>
+
+    <!-- <div class="col-md-3">
+      <label class="control-label">Cluster</label>
+      <select class="form-control" name="cbNUM_K" id="cbNUM_K" ng-options="option.name for option in cbNUM_K.availableOptions track by option.value" ng-model="cbNUM_K.selectedOption" >
+      </select>
+      <input type="text" class="form-control" id = "num_k" value = "{{cbNUM_K.selectedOption.name}}" style="display:none;">
+    </div> -->
+
+  </div>
+  <br>
+  <div class="row"> 
+    <div class="col-md-12">
+      <label class="control-label">เลือกกระดาษคำตอบ</label>
+      <input type="file" file-model="fileAns" id = "tttt" class="form-control" accept=".csv">
+    </div>
+    <!-- <div class="col-md-4">
+      <label class="control-label">กําหนดเปอรเซ็นตเพื่อใชในการสุมตรวจ</label>
+      <select class="form-control" name="cbPerc" id="cbPerc" ng-options="option.name for option in cbPerc.availableOptions track by option.value" ng-model="cbPerc.selectedOption" >
+      </select>
+      <input type="text" class="form-control" id = "perc" value = "{{cbPerc.selectedOption.name}}" style="display:none;">
+    </div> -->
+  </div>  
+  <br>
+  <div class="row"> 
+    <div class="col-md-12">
+      <label class="control-label">ผลการตรวจให้คะแนน</label>    
+    </div>
+  </div>
+  <div class="row"> 
+    <div class="col-md-12">
+      <div ui-grid="gridOptionsHead" ui-grid-edit ui-grid-cellNav class="grid"></div>     
+    </div>
+  </div> 
+  <div class="row"> 
+    <div class="col-md-6">
+      <label class="control-label">%correct</label>
+      <input type="text" class="form-control" id = "correct" ng-model = "correct" value = "{{correct}}" >
+    </div>
+
+    <div class="col-md-6">
+      <label class="control-label">%wrong</label>
+      <input type="text" class="form-control" id = "wrong" ng-model = "wrong" value = "{{wrong}}" >
+    </div> 
+  </div> 
+</div>

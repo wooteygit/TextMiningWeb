@@ -1,0 +1,68 @@
+h3{
+    margin-top: 2px;
+}
+
+.grid1{
+    @media (min-width: 10%){
+        .modal-md {
+            width: 10%;
+        }
+    }
+
+}
+
+.specbar{
+  /*padding-left: 0.8em ;*/
+}
+
+.def{
+  color: red;
+}
+
+.button {
+  background-color: #669999;
+  border: none;
+  color: white;
+  height: 8%;
+  width: 105%;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer; 
+  padding: 15px 32px; 
+  padding-left: 10px;
+  padding-right: 20px;  
+  margin: 4px 2px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+.button > p{
+  float:right;
+  width : 100%;
+  padding-top: 30%;
+  padding-left: -15px;
+  padding-right: -10px;
+  color: #000000;
+}
+.button > p.ft{
+  float:right;
+  padding-top: 0px;
+  margin-bottom: 0px;
+  color: #000000;
+}
+.button > .iconP{
+  float:left;
+  /*padding-bottom: 100px;*/
+  width: 20px;
+  height: 20px;
+}
+
+.button > .iconP > .glyphicon{
+  font-size: 230%;
+  color: #000000;
+}
+
+.button:hover{
+  color: #2b5252;
+  background: #2b5252;
+}

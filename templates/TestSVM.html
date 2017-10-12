@@ -1,0 +1,296 @@
+<style type="text/css">
+  .row{
+    vertical-align: left;
+    padding-left:0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  td div.overText {
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+  .grid {
+    border: 0.5px solid #2D3E52;
+  }
+</style>
+
+<div class = "layoutpage" data-ng-init="comboK()">
+    <div class="row">
+    <div class="media">
+      <div class="media-left">
+        <center><div class='glyphicon glyphicon-ok' style="width:100px"></div></center>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">SVM type parameters</h4>
+        <br>
+        <!-- <button ng-click="loopParam()">defaultVal</button>
+        <br> -->
+        <div class="radio-inline">
+          <label><input type="radio" id="c_svc" name = "svm_type" checked="checked" ng-click="checkdis2()">C-SVC</label>
+        </div>
+        <div class="radio-inline">
+          <label><input type="radio" id="nu_svc" name = "svm_type" ng-click="checkdis2()">nu-SVC</label>
+        </div>
+        <div style="display:none;">
+          <div class="radio-inline">
+            <label><input type="radio" id="one_class_svm"  name = "svm_type">One-Class SVM</label>
+          </div>
+          <div class="radio-inline">
+            <label><input type="radio" id="epsilon_svr" name = "svm_type">Epsilon-SVR</label>
+          </div>
+          <div class="radio-inline">
+            <label><input type="radio" id="nu_svr" name = "svm_type">Nu-SVR</label>
+          </div>
+        </div>     
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-3">
+            <center><label class="control-label">Start</label></center>
+          </div>
+          <div class="col-md-3">
+            <center><label class="control-label">Step</label></center>
+          </div>
+          <div class="col-md-3">
+            <center><label class="control-label">Stop</label></center>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <label class="control-label">cost <span class = "def">[default 1]</span></label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "cost" value = "1" ng-disabled="dis11">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "costStep" value = "1" ng-disabled="dis11">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "costStop" value = "3.0" ng-disabled="dis11">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <label class="control-label">weight  <span class = "def">[default 1]</span></label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "weight" value = "1" ng-disabled="dis22">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "weightStep" value = "1" ng-disabled="dis22">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "weightStop" value = "3.0" ng-disabled="dis22">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <label class="control-label">probability  <span class = "def">[0 or 1]</span></label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "prob" value = "0" ng-disabled="dis33">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "probStep" value = "1" ng-disabled="dis33">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "probStop" value = "1.0" ng-disabled="dis33">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <label class="control-label">nu  <span class = "def">[default 0.5]</span></label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "nu" value = "0.5" ng-disabled="dis44">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "nuStep" value = "0.1" ng-disabled="dis44">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "nuStop" value = "1.0" ng-disabled="dis44">
+          </div>
+        </div>
+        <br>  
+      </div>
+    </div>
+  </div>
+  <hr class = "style-three">
+  <div class="row">
+    <div class="media">
+      <div class="media-left">
+        <center><div class='glyphicon glyphicon-ok' style="width:100px"></div></center>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">Kernel type parameters</h4>
+        <br>
+        <!-- <button ng-click="defaultValKernel()">defaultVal</button>
+        <br> -->
+        <div class="radio-inline">
+          <label><input type="radio" id="linear" name = "kerneltype" checked="checked" ng-click="checkdis()">Linear</label>
+        </div>
+        <div class="radio-inline">
+          <label><input type="radio" id="polynomial" name = "kerneltype" ng-click="checkdis()">Polynomial</label>
+        </div>
+        <div class="radio-inline">
+          <label><input type="radio" id="radial_basis" name = "kerneltype" ng-click="checkdis()">Radial Basis</label>
+        </div>
+        <div class="radio-inline">
+          <label><input type="radio" id="sigmoid" name = "kerneltype" ng-click="checkdis()">Sigmoid</label>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-3">
+            <center><label class="control-label">Start</label></center>
+          </div>
+          <div class="col-md-3">
+            <center><label class="control-label">Step</label></center>
+          </div>
+          <div class="col-md-3">
+            <center><label class="control-label">Stop</label></center>
+          </div>
+        </div>
+        <br>
+      
+        <div class="row">
+          <div class="col-md-3">
+            <label class="control-label">gamma  <span class = "def" ng-model = "num_att">[default {{1/num_att}}]</span></label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "gamma" value = "{{1/num_att}}" ng-disabled="dis1">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "gammaStep" value = "0.01" ng-disabled="dis1">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "gammaStop" value = "{{(1/num_att)+0.05}}" ng-disabled="dis1">
+          </div>
+        </div>
+      
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <label class="control-label">coef0  <span class = "def">[default 0]</span></label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "coef0" value = "0" ng-disabled="dis2">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "coef0Step" value = "0.1" ng-disabled="dis2">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "coef0Stop" value = "0.5" ng-disabled="dis2">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <label class="control-label">degree  <span class = "def">[default 3]</span></label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "degree" value = "3" ng-disabled="dis3">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "degreeStep" value = "1" ng-disabled="dis3">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "degreeStop" value = "4" ng-disabled="dis3">
+          </div>
+        </div>
+        <br>
+      </div>
+      <!-- <hr class = "style-three">
+      <div class="row">
+        <div class="media">
+          <div class="media-left">
+            <center><div class='glyphicon glyphicon-ok' style="width:100px"></div></center>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Kernel Type Parameter</h4>
+            <br>
+        <div class="row">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-3">
+            <center><label class="control-label">Start</label></center>
+          </div>
+          <div class="col-md-3">
+            <center><label class="control-label">Step</label></center>
+          </div>
+          <div class="col-md-3">
+            <center><label class="control-label">Stop</label></center>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <label class="control-label">epsilon</label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "epsilon" value = "0.001">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "epsilonStep" value = "0.001">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "epsilonStop" value = "0.005">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <label class="control-label">p</label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "p" value = "0.1">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "pStep" value = "0.1">
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "pStop" value = "0.5">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-3">
+            <label class="control-label">CachSize</label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="form-control" id = "cachsize" value = "100">
+          </div>
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-3">
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div> 
+
+  <hr class = "style-three">
+<!--   <div class="row">
+    <div class="col-md-12">
+      <label class="control-label" >เลือกเฉลย</label>
+      <input type="file" file-model="scoreFile" id = "myfilescore" class="form-control" accept=".csv">
+    </div>
+  </div>
+  <br> -->
+  <div class="row"> 
+    <div class="col-md-12">
+      <div ui-grid='gridOptionsHead' class='grid' ui-grid-selection ui.grid.autoResize></div>  
+    </div>
+    <br> 
+  </div>   
+</div>

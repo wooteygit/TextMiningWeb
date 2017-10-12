@@ -1,0 +1,53 @@
+<style type="text/css">
+
+  .row{
+    vertical-align: left;
+    padding-left:0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  td div.overText {
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+</style>
+
+<div class = "layoutpage">
+  <div class="row">
+    <div class="col-md-12">
+      <label class="control-label">Train : Test</label>
+      <select class="form-control" id = "comboTrainTest">
+        <option ng-repeat="combo in comboTrainTest" value="{{combo.VALUE}}" >{{combo.VALUE}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row"> 
+    <div class="col-md-12">
+      <label class="control-label">รายละเอียด</label>
+      <table id = "tbgen">
+        <thead>
+          <tr>
+            <th width="10%" class = "on-left"><center>ลำดับ</center></th>
+            <th width="50%" class = "on-left"><div>ชื่อไฟล์</div></th>
+            <th width="25%" class = "on-left"><center>ประเภทไฟล์</center></th>
+            <th width="15%" class = "on-left"><center>Download</center></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat = "dt in datafile  | orderBy : 'fileName'">
+            <td class = "on-left"><center>{{ $index + 1 }}</center></td>
+            <td class = "on-left"><div class = "overText">{{dt.fileName}}</div></td>
+            <td class = "on-left"><center><div class = "overText">{{dt.fileType}}</div></center></td>
+            <td class = "on-left"><center><div ng-model="conpath"><a href="{{conpath}}download?filename={{dt.fileName}}" download>download</a></div></center></td>
+          </tr>
+        </tbody>
+      </table>          
+    </div>
+  </div> 
+  <br> 
+</div>

@@ -1,0 +1,51 @@
+<style type="text/css">
+
+	.row{
+	  vertical-align: left;
+	  padding-left:0px;
+	  padding-right: 0px;
+	  margin-top: 0px;
+	  margin-left: 0px;
+	  margin-right: 0px;
+	}
+
+	td div.overText {
+	  width: 100%;
+	  word-wrap: break-word;
+	}
+
+</style>
+
+<div class = "layoutpage">
+	<div class="row">
+		<div class="col-md-12" ng-model = "conpath">
+	        <label class="control-label">Path Service</label>
+	        <input type="text" class="form-control" id = "setconpath" value = "{{conpath}}">
+      	</div>
+	</div>
+	<br>
+	<div ng-model = "conn">
+	    <div class="row">
+		    <div class="row">
+		      	<div class="col-md-6">
+			        <label class="control-label">Host</label>
+			        <input type="text" class="form-control" id = "d" value = "{{conn.host}}">
+		      	</div>
+		      	<div class="col-md-6">
+			        <label class="control-label">Database Name</label>
+			        <input type="text" class="form-control" id = "f" value = "{{conn.database_data}}">
+		      	</div>
+		    </div>
+		    <br>
+		    <div class="col-md-6">
+		        <label class="control-label">User Name</label>
+		        <input type="text" class="form-control" id = "a" value = "{{conn.user}}">
+		    </div>
+		    <div class="col-md-6">
+		        <label class="control-label">Password</label>
+		        <input type="text" class="form-control" id = "s" value = "{{conn.password}}">
+		    </div>
+	    </div>
+	    <br>
+    </div>
+</div>

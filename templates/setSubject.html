@@ -1,0 +1,35 @@
+<style type="text/css">
+	.grid {
+	  border: 0.5px solid #2D3E52;
+	}
+</style>
+<div class = "layoutpage">
+	<div class="row">
+	    <div class="col-md-6">
+	        <label class="control-label">รหัสวิชา</label>
+	        <input type="text" class="form-control" id="sj_code" ng-model="sj_code" value="{{sj_code}}" placeholder="รหัสวิชา">
+	    </div>
+	    <div class="col-md-6">
+	        <label class="control-label">ชื่อวิชา</label>
+	        <input type="text" class="form-control" id="sj_name" ng-model="sj_name" value="{{sj_name}}" placeholder="ชื่อวิชา">
+	    </div>
+	</div>
+	<br>
+	<div class="row">
+	    <div class="col-md-6">
+	        <label class="control-label">ไม่ใช้งาน</label>
+	        <input type="checkbox" class="form-control" ng-checked="inactive" id="inactive" ng-model="inactive" value="{{inactive}}" placeholder="inactive">
+	    </div>
+	    <div class="col-md-6" style="display:none;">
+	        <label class="control-label">sj_id</label>
+	        <input type="text" class="form-control" id="sj_id" ng-model="sj_id" value="{{sj_id}}" placeholder="sj_id">
+	    </div>
+	</div>
+	<br>
+	<div class="row">
+	    <div class="col-md-12">
+			<div ui-grid='gridOptionsHead' ui-grid-selection ui-grid-pagination class='grid'></div>
+		</div>
+	</div>
+	<br>
+</div>

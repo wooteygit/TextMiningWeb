@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TextMining" class="ng-scope">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="">
+  <title>Scoring System</title>
+
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/simple-sidebar.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/ng-dialog/css/ngDialog.min.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/ng-dialog/css/ngDialog-theme-default.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/form-ctrl.css">
+  <link rel="stylesheet" type="text/css" href="lib/jquery-bootgrid/jquery.bootgrid.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/angular-ui-grid/ui-grid.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/angular-ui-grid/ui-grid.min.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/ng-dialog/css/ngDialog.min.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/ng-dialog/css/ngDialog-theme-default.min.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/angular-ui-grid/ui-grid.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/angular-material/angular-material.min.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/angular-ui-grid/ui-grid.min.css">
+  <link rel="stylesheet" type="text/css" href="node_modules/sweetalert/dist/sweetalert.css">
+</head>
+
+<body ng-controller="main" onload="startTime()">
+    <div id="wrapper" role="navigation">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a ui-sref="homepage" ui-sref-opts="{reload:true}">
+                        <!--<div class='glyphicon glyphicon-home'></div> -->
+						ระบบชวยตรวจแบบฝกหัด
+					</a>
+                </li>
+                <div class="li_menu">
+                    <div ui-view="MenuClusterKmeans"></div>
+                    <div ui-view="MenuScoreAns"></div>
+                    <div ui-view="MenuTestSVM"></div>
+                    <div ui-view="MenuSetAll"></div>
+                    <div ui-view="MenuWriterTrainTest"></div>
+                    <div ui-view="MenuSaveModel"></div>
+                    <div ui-view="MenuLoadModel"></div>
+                    <div ui-view="MenuSetSubject"></div>
+                    <div ui-view="MenuLoadScoreFromFile"></div>
+                    <div ui-view="blackToHome"></div>
+                </div>
+            </ul>
+        </div>
+        <nav class="navbar" id = "menu-toggle" style="position: fixed;top: 0px;width:100%;z-index: 5;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <div class='glyphicon glyphicon-align-justify' style="padding-left: 3px;font-size : 18px;color: #000;word-spacing:-0.8em;"> &emsp;{{titel}}</div>
+                    </div>
+                </div>
+                <!-- <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="#">Page 2</a></li>
+                </ul> -->
+            </div>
+        </nav>
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div ui-view="homepage"></div>
+                <div ui-view="ClusterKmeans"></div>
+                <div ui-view="TestSVM"></div>
+                <div ui-view="KmeansAll"></div>
+                <div ui-view="SvmAll"></div>
+                <div ui-view="BestSvmAll"></div>
+                <div ui-view="SetAll"></div>
+                <div ui-view="ScoreAns"></div>
+                <div ui-view="SetConn"></div>
+                <div ui-view="SaveModel"></div>
+                <div ui-view="LoadModel"></div>
+                <div ui-view="setSubject"></div>
+                <div ui-view="WriterTrainTest"></div>
+                <div ui-view="LoadScoreFromFile"></div>
+            </div>
+        </div>
+		<div class="footer">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav" id ="txt">
+                    <li><div id="footer-nav"></div></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/jquery-bootgrid/jquery.bootgrid.js"></script>
+    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="node_modules/ng-dialog/js/ngDialog.js"></script>
+    <script type="text/javascript" src="node_modules/ng-dialog/js/ngDialog.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-material/angular-material.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="node_modules/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-ui-grid/ui-grid.js"></script>
+    <script type="text/javascript" src="node_modules/angular-ui-grid/ui-grid.min.js"></script>
+    <script type="text/javascript" src="./node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+    <script type="text/javascript" src="js/factorys/dialogFactory.js"></script>
+    <script type="text/javascript" src="js/factorys/myFactory.js"></script>
+
+    <script type="text/javascript" src="js/services/myService.js"></script>
+
+    <script type="text/javascript" src="js/directives/myDirective.js"></script>
+
+    <script type="text/javascript" src="js/controllers/Login.js"></script>
+    <script type="text/javascript" src="js/controllers/GenPage.js"></script>
+    <script type="text/javascript" src="js/controllers/Classify.js"></script>
+    <script type="text/javascript" src="js/controllers/Kmeans.js"></script>
+    <script type="text/javascript" src="js/controllers/LoadModel.js"></script>
+    <script type="text/javascript" src="js/controllers/SaveModel.js"></script>
+    <script type="text/javascript" src="js/controllers/SetConn.js"></script>
+    <script type="text/javascript" src="js/controllers/SetSubject.js"></script>
+    <script type="text/javascript" src="js/controllers/TestSVM.js"></script>
+    <script type="text/javascript" src="js/controllers/ScoreAns.js"></script>
+    <script type="text/javascript" src="js/controllers/SvmAll.js"></script>
+    <script type="text/javascript" src="js/controllers/WriterTrainTest.js"></script>
+    <script type="text/javascript" src="js/controllers/SetAll.js"></script>
+    <script type="text/javascript" src="js/controllers/BestSvmAll.js"></script>
+    <script type="text/javascript" src="js/controllers/LoadScoreFromFile.js"></script>
+
+    <script type="text/javascript" src="js/etc/main.js"></script>
+    <script type="text/javascript" src="js/etc/wait.js"></script>
+    <script type="text/javascript" src="js/etc/myutils.js"></script>
+    <script type="text/javascript" src="js/etc/allHome.js"></script>
+    <script type="text/javascript" src="js/etc/hotkeys.js"></script>
+    <script type="text/javascript" src="js/etc/wrapper.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      wrapper();
+    });
+    </script>
+</body>
+
+</html>

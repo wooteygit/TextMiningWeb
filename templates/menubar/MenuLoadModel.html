@@ -1,0 +1,12 @@
+<li>
+    <a ng-click="checkAns()"><div class='glyphicon glyphicon-floppy-disk'>  &emsp;ตรวจคำตอบ </div></a>
+</li>
+<li ng-model="conpath">
+    <a href="{{conpath}}download?filename={{scoreFile}}" download><div class='glyphicon glyphicon-cloud-download'>  &emsp;Export Score </div></a>
+</li>
+<li>
+    <a ng-click="retraining()"><div class='glyphicon glyphicon-retweet'>  &emsp;Retraining </div></a>
+</li>
+<li>
+    <a ui-sref="BestSvmAll" ui-sref-opts="{reload:true}"><div class='glyphicon glyphicon-hand-left'>  &emsp;ย้อนกลับ </div></a>
+</li>

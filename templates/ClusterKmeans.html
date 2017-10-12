@@ -1,0 +1,73 @@
+<style type="text/css">
+  .row{
+    vertical-align: left;
+    padding-left:0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+</style>
+
+<div class = "layoutpage">
+  <div class="row">
+    <div class="col-md-4">
+        <label class="control-label">วิชา    หรือ <a ui-sref="setSubject">(จัดการวิชาเรียน)</a></label>
+        <select class="form-control" name="optionsSubj" id="optionsSubj" ng-options="option.name for option in optionsSubj.availableOptions track by option.value" ng-model="optionsSubj.selectedOption" >
+        </select>
+        <input type="text" class="form-control" ng-model = "sj_id" id = "sj_id" value = "{{optionsSubj.selectedOption.name}}" style="display:none;">
+      </div>
+      <div class="col-md-4">
+        <label class="control-label">แบบฝึกหัดที่</label>
+        <input type="number" class="form-control" ng-model = "p_sj_id" id = "p_sj_id" value = "0" >
+      </div>
+      <div class="col-md-4">
+        <label class="control-label">ข้อที่</label>
+        <input type="number" class="form-control" ng-model = "seq" id = "seq" value = "0">
+      </div>
+  </div>
+  <p>
+  <p>
+  <div class="row">
+    <div class="col-md-12">
+     หมายเหตุ ถาระบุวิชา แบบฝึกหัดที่ ขอที่ ซ้ำกับขอมูลเดิมที่มีอยู ระบบจะทําการ update กับขอมูลเดิม
+    </div>
+  </div> 
+  <br>
+  <div class="row">
+    <div class="col-md-8">
+      <label class="control-label" >เลือกไฟลคำตอบ</label>
+      <input type="file" file-model="myFile" id = "asd" class="form-control" accept=".csv">
+    </div>
+    <div class="col-md-4">
+     <!--  <label class="control-label" >ระบุค่า K</label>
+      <select class="form-control" id = "combo_g">
+        <option ng-repeat="combo in data_combo" value="{{combo.value}}"> {{combo.name}}</option>
+      </select> -->
+    </div>
+  </div>
+  <br>
+  <div class="row"> 
+    <div class="col-md-12">
+      <label class="control-label">รายละเอียด</label>
+      <table id = "tbgen">
+        <thead>
+          <tr>
+            <th width="5%" class = "on-left"><center>ลำดับ</center></th>
+            <th width="20%"class = "on-left"><center>รหัสนักศึกษา</center></th>
+            <th width="75%" class = "on-left"><center>คำตอบ</center></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat = "dt in df | orderBy : 'group'">
+            <td class = "on-left"><center>{{ $index + 1 }}</center></td>
+            <td class = "on-left"><center>{{dt.id}}</center></td>
+            <td class = "on-left">{{dt.desc}}</td>
+          </tr>
+        </tbody>
+      </table>          
+    </div>
+  </div> 
+  <br> 
+</div>

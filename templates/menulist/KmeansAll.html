@@ -1,0 +1,40 @@
+<style>
+.row{
+  vertical-align: left;
+  padding-left:0px;
+  padding-right: 0px;
+  margin-top: 0px;
+  margin-left: -15px;
+  margin-right: 0px;
+}
+</style>
+  <div class="row">
+    <div class="col-md-3">
+      <a ui-sref="ClusterKmeans" ui-sref-opts="{reload:true}" class="button" ng-click="getData()">
+        <div class ="iconP">
+          <div class='glyphicon glyphicon-resize-small'></div>
+        </div> 
+        <p class ='ft'>F3</p>  
+        <p>นําเขาไฟลคําตอบ</p>
+      </a>
+    </div>
+<!--     <div class="col-md-3"> 
+      <a ui-sref="ScoreAns" ui-sref-opts="{reload:true}" class="button">
+        <div class ="iconP">
+          <div class='glyphicon glyphicon-screenshot'></div>
+        </div> 
+        <p class ='ft'>F4</p>  
+        <p>กำหนดคะแนน</p>
+      </a>
+    </div> -->
+    <div class="col-md-3"> 
+      <a ui-sref="LoadScoreFromFile" ui-sref-opts="{reload:true}" class="button">
+        <div class ="iconP">
+          <div class='glyphicon glyphicon-screenshot'></div>
+        </div> 
+        <p class ='ft'>F4</p>  
+        <p>นําเขาคะแนนเฉลย</p>
+      </a>
+    </div>
+  </div>
+</div>

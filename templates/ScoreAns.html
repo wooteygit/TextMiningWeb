@@ -1,0 +1,55 @@
+<style type="text/css">
+
+  .row{
+    vertical-align: left;
+    padding-left:0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  td div.overText {
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+</style>
+
+<div class = "layoutpage">
+  <div class="row">
+    <div class="col-md-6">
+      <label class="control-label">ระบุค่า K</label>
+      <select class="form-control" id = "combo_k">
+        <option ng-repeat="combo in combo_k" value="{{combo.value}}"> {{combo.name}}</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label class="control-label" >ให้คะแนน</label>
+      <input type="number" class="form-control" id = "txtScore" value = "0"></option>
+    </div>
+  </div>
+  <br>
+  <div class="row"> 
+    <div class="col-md-12">
+      <label class="control-label">รายละเอียด</label>
+      <table id = "tbgen">
+        <thead>
+          <tr>
+            <th width="5%" class = "on-left"><center>ลำดับ</center></th>
+            <th width="15%" class = "on-left"><center>รหัสนักศึกษา</center></th>
+            <th width="80%" class = "on-left"><div>รายการ</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat = "dt in dt_words">
+            <td class = "on-left"><center>{{ $index + 1 }}</center></td>
+            <td class = "on-left"><center>{{dt.name}}</center></td>
+            <td class = "on-left"><div class = "overText">{{dt.value}}</div></td>
+          </tr>
+        </tbody>
+      </table>          
+    </div>
+  </div> 
+  <br> 
+</div>
